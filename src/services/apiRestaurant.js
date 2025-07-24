@@ -1,4 +1,4 @@
-const API_URL = "https://react-fast-pizza-api.jonas.io/api";
+import { API_URL } from "../utils/helpers"
 
 export async function getMenu() {
 

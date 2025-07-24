@@ -1,3 +1,5 @@
+export const API_URL = "https://react-fast-pizza-api.jonas.io/api";
+
 export function formatCurrency(value) {
   return new Intl.NumberFormat("en", {
     style: "currency",
