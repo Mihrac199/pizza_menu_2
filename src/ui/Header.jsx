@@ -6,7 +6,7 @@ export default function Header() {
 
      return (
 
-          <header className="bg-yellow-500 uppercase">
+          <header className="flex items-center justify-between px-4 py-5 sm:px-5 sm:py-6 border-b border-stone-200 bg-yellow-500 uppercase">
 
                <Link
                     to="/"
