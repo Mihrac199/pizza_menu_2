@@ -16,9 +16,13 @@ export default function AppLayout() {
 
                <Header />
 
-               <main className="overflow-scroll">
-                    <Outlet />
-               </main>
+               <div className="overflow-scroll">
+                    <main className="mx-auto max-w-xl">
+
+                         <Outlet />
+
+                    </main>
+               </div>
 
                <CartOverview />
 

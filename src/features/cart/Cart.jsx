@@ -36,7 +36,9 @@ export default function Cart() {
 
     <div>
 
-      <Link to="/menu">&larr; Back to menu</Link>
+      <Link
+        className="text-sm text-blue-500 hover:text-blue-700 hover:underline"
+        to="/menu">&larr; Back to menu</Link>
 
       <h2>Your cart, %NAME%</h2>
 

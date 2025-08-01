@@ -101,7 +101,11 @@ export default function CreateOrder() {
           <label>Address</label>
 
           <div>
-            <input type="text" name="address" required />
+            <input
+              className="w-full text-center rounded-lg border border-stone-200 px-4 py-2 focus:outline-none focus:ring  focus:bg-yellow-100 focus:ring-yellow-100 focus:ring-offset-1"
+              type="text"
+              name="address"
+              required />
           </div>
 
         </div>
@@ -109,6 +113,7 @@ export default function CreateOrder() {
         <div>
 
           <input
+            className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring  focus:bg-yellow-100 focus:ring-yellow-100 focus:ring-offset-1"
             type="checkbox"
             name="priority"
             id="priority"
@@ -116,13 +121,15 @@ export default function CreateOrder() {
           // onChange={(e) => setWithPriority(e.target.checked)}
           />
 
-          <label htmlFor="priority">Want to yo give your order priority?</label>
+          <label htmlFor="priority"> Want to yo give your order priority?</label>
 
         </div>
 
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <button disabled={isSubmitting}>{isSubmitting ? "Placing Order..." : "Order now"}</button>
+          <button
+            className="bg-yellow-500 font-semibold text-stone-800 px-2 py-2 rounded-lg hover:bg-yellow-400 transition-all duration-300 focus:outline-none focus:ring focus:bg-yellow-400 focus:ring-yellow-400 focus:ring-offset-1"
+            disabled={isSubmitting}>{isSubmitting ? "Placing Order..." : "Order Now"}</button>
         </div>
 
       </Form>
