@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Form, redirect, useActionData, useNavigation } from "react-router-dom"
 import { createOrder } from "../../services/apiRestaurant"
+import Button from "../../ui/Button"
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -80,7 +81,11 @@ export default function CreateOrder() {
 
           <label>First Name</label>
 
-          <input type="text" name="customer" required />
+          <input
+            className="input"
+            type="text"
+            name="customer"
+            required />
 
         </div>
 
@@ -89,7 +94,11 @@ export default function CreateOrder() {
           <label>Phone number</label>
 
           <div>
-            <input type="tel" name="phone" required />
+            <input
+              className="input"
+              type="tel"
+              name="phone"
+              required />
           </div>
 
           {formErrors?.phone && <p>{formErrors.phone}</p>}
@@ -102,7 +111,7 @@ export default function CreateOrder() {
 
           <div>
             <input
-              className="w-full text-center rounded-lg border border-stone-200 px-4 py-2 focus:outline-none focus:ring  focus:bg-yellow-100 focus:ring-yellow-100 focus:ring-offset-1"
+              className="input"
               type="text"
               name="address"
               required />
@@ -126,10 +135,15 @@ export default function CreateOrder() {
         </div>
 
         <div>
+
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <button
-            className="bg-yellow-500 font-semibold text-stone-800 px-2 py-2 rounded-lg hover:bg-yellow-400 transition-all duration-300 focus:outline-none focus:ring focus:bg-yellow-400 focus:ring-yellow-400 focus:ring-offset-1"
-            disabled={isSubmitting}>{isSubmitting ? "Placing Order..." : "Order Now"}</button>
+
+          <Button
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Placing Order..." : "Order Now"}
+          </Button>
+
         </div>
 
       </Form>
