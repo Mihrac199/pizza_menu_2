@@ -71,13 +71,13 @@ export default function CreateOrder() {
 
   return (
 
-    <div>
+    <div className="py-5 px-5">
 
-      <h2>Ready to order? Let's go!</h2>
+      <h2 className="mt-2 mb-8 text-lg font-bold">Ready to order? Let's go!</h2>
 
       <Form method="POST">
 
-        <div>
+        <div className="mb-5">
 
           <label>First Name</label>
 
@@ -89,7 +89,7 @@ export default function CreateOrder() {
 
         </div>
 
-        <div>
+        <div className="mb-5">
 
           <label>Phone number</label>
 
@@ -99,13 +99,15 @@ export default function CreateOrder() {
               type="tel"
               name="phone"
               required />
+            {formErrors?.phone &&
+              <p className="mt-3 text-xs bg-red-200 text-red-800 bg px-4 py-2 rounded-full">{formErrors.phone}</p>
+            }
           </div>
 
-          {formErrors?.phone && <p>{formErrors.phone}</p>}
 
         </div>
 
-        <div>
+        <div className="mb-5">
 
           <label>Address</label>
 
@@ -119,7 +121,7 @@ export default function CreateOrder() {
 
         </div>
 
-        <div>
+        <div className="mb-5">
 
           <input
             className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring  focus:bg-yellow-100 focus:ring-yellow-100 focus:ring-offset-1"
@@ -139,6 +141,7 @@ export default function CreateOrder() {
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
 
           <Button
+            type="primary"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Placing Order..." : "Order Now"}

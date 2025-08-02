@@ -1,4 +1,5 @@
 import { formatCurrency } from "../../utils/helpers"
+import Button from "../../ui/Button"
 
 export default function MenuItem({ pizza }) {
 
@@ -6,18 +7,26 @@ export default function MenuItem({ pizza }) {
 
   return (
 
-    <li>
+    <li className="flex gap-4 py-4">
 
-      <img src={imageUrl} alt={name} />
+      <img
+        className={`h-32 ${soldOut ? `blur-sm` : ``}`}
+        src={imageUrl}
+        alt={name} />
 
-      <div>
+      <div className="flex flex-col grow pt-1">
 
-        <p>{name}</p>
-        <p>{ingredients.join(', ')}</p>
+        <p className="font-extrabold">{name}</p>
+        <p className="capitalize text-sm italic text-stone-500">{ingredients.join(', ')}</p>
 
-        <div>
+        <div className="mt-auto flex justify-between items-center">
 
-          {!soldOut ? <p>{formatCurrency(unitPrice)}</p> : <p>Sold out</p>}
+          {!soldOut ?
+            <p className="text-sm">{formatCurrency(unitPrice)}</p> :
+            <p className="text-sm font-semibold uppercase text-stone-400">Sold out</p>
+          }
+
+          <Button type="small">Add To Cart</Button>
 
         </div>
 

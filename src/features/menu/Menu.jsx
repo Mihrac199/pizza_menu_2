@@ -13,7 +13,7 @@ export default function Menu() {
 
   return (
 
-    <ul>
+    <ul className="divide-y divide-stone-200 px-5">
       {menu.map(pizza => <MenuItem pizza={pizza} key={pizza.id} />)}
     </ul>
 
