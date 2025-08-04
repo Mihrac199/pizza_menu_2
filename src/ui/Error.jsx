@@ -7,13 +7,17 @@ export default function Error() {
 
   return (
 
-    <div>
+    <div className="flex items-center justify-center h-screen">
 
-      <h1>Something went wrong 😢</h1>
+      <div className="space-y-5">
 
-      <p>{error.data || error.message}</p>
+        <h1 className="text-4xl font-semibold">Something went wrong</h1>
 
-      <LinkButton to="-1">&larr; Go Back</LinkButton>
+        <p className="text-lg font-bold text-stone-500">{error.data || error.message}</p>
+
+        <LinkButton to="-1">&larr; Go Back</LinkButton>
+
+      </div>
 
     </div>
 
