@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Form, redirect, useActionData, useNavigation } from "react-router-dom"
+import { useSelector } from "react-redux"
 import { createOrder } from "../../services/apiRestaurant"
 import Button from "../../ui/Button"
 
@@ -61,6 +62,8 @@ export async function action({ request }) {
 
 export default function CreateOrder() {
 
+  const userName = useSelector(state => state.user.userName);
+
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
 
@@ -83,6 +86,7 @@ export default function CreateOrder() {
 
           <input
             className="input"
+            defaultValue={userName}
             type="text"
             name="customer"
             required />

@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux"
 import CreateUser from "../features/user/CreateUser"
+import Button from "./Button"
 
 export default function Home() {
+
+  const userName = useSelector(state => state.user.userName);
 
   return (
 
@@ -14,7 +18,11 @@ export default function Home() {
         </span>
       </h1>
 
-      <CreateUser />
+      {userName === "" ?
+        <CreateUser />
+        :
+        <Button to="/menu" type="primary">Continue Menu, {userName}</Button>
+      }
 
     </div>
 
