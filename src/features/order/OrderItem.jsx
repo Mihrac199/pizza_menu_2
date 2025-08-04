@@ -6,15 +6,15 @@ export default function OrderItem({ item, isLoadingIngredients, ingredients }) {
 
   return (
 
-    <li>
+    <li className="p-4">
 
-      <div>
+      <div className="flex items-center justify-between text-xs">
 
         <p>
           <span>{quantity}&times;</span> {name}
         </p>
 
-        <p>{formatCurrency(totalPrice)}</p>
+        <p className="font-bold">{formatCurrency(totalPrice)}</p>
 
       </div>
 
