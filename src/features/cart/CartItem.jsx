@@ -1,4 +1,4 @@
-import Button from "../../ui/Button"
+import DeleteItem from "./DeleteItem"
 import { formatCurrency } from "../../utils/helpers"
 
 export default function CartItem({ item }) {
@@ -16,7 +16,8 @@ export default function CartItem({ item }) {
       <div className="flex justify-between items-center">
 
         <p className="text-sm font-bold">{formatCurrency(totalPrice)}</p>
-        <Button type="small">Delete</Button>
+
+        <DeleteItem pizzaId={pizzaId} />
 
       </div>
 
