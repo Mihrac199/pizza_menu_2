@@ -1,5 +1,6 @@
 import DeleteItem from "./DeleteItem"
 import { formatCurrency } from "../../utils/helpers"
+import UpdateItemQuantity from "./UpdateItemQuantity"
 
 export default function CartItem({ item }) {
 
@@ -17,7 +18,13 @@ export default function CartItem({ item }) {
 
         <p className="text-sm font-bold">{formatCurrency(totalPrice)}</p>
 
-        <DeleteItem pizzaId={pizzaId} />
+        <div className="flex items-center space-x-4">
+
+          <UpdateItemQuantity pizzaId={pizzaId} />
+
+          <DeleteItem pizzaId={pizzaId} />
+
+        </div>
 
       </div>
 

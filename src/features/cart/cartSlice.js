@@ -13,25 +13,38 @@ const cartSlice = createSlice({
      reducers: {
 
           addItem(state, action) {
-               // NEW ITEM
                state.cart.push(action.payload);
           },
 
           deleteItem(state, action) {
-               // DELETE ITEM
                state.cart = state.cart.filter(item => item.pizzaId !== action.payload);
           },
 
           increaseItemQuantity(state, action) {
-               const item = state.cart.forEach(item => item.pizzaId === action.payload);
+               let item;
+               for (const x of state.cart) {
+                    if (x.pizzaId === action.payload) {
+                         item = x;
+                    }
+               }
+
                item.quantity++;
                item.totalPrice = item.quantity * item.unitPrice;
+
           },
 
           decreaseItemQuantity(state, action) {
-               const item = state.cart.forEach(item => item.pizzaId === action.payload);
+               let item;
+               for (const x of state.cart) {
+                    if (x.pizzaId === action.payload) {
+                         item = x;
+                    }
+               }
+
                item.quantity--;
                item.totalPrice = item.quantity * item.unitPrice;
+
+               if (item.quantity === 0) cartSlice.caseReducers.deleteItem(state, action)
           },
 
           clearCart(state) {
@@ -50,9 +63,18 @@ export default cartSlice.reducer;
 
 export const getCart = state => state.cart.cart;
 
-export const getTotalCartQuantity = state => state.cart.cart.length;
+export const getTotalCartQuantity = state => {
 
-export function getTotalCartPrice(state) {
+     let $totalQuantity = 0;
+     for (const item of state.cart.cart) {
+          $totalQuantity += item.quantity;
+     }
+
+     return $totalQuantity;
+
+}
+
+export const getTotalCartPrice = state => {
 
      let $totalPrice = 0;
      for (const item of state.cart.cart) {
@@ -60,6 +82,7 @@ export function getTotalCartPrice(state) {
      }
 
      return $totalPrice;
+
 }
 
 export function getCurrentQuantityById(id) {
